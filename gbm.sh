@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 GIT_COLOR="#f14e32"
 
