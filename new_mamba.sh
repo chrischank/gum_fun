@@ -34,11 +34,13 @@ NAME=$(gum input --placeholder "name")
 
 case $command in
     Python)
-        echo "Creating mamba python environment:"
-        mamba create -n m_$NAME -y ipykernel ipython numpy;;
+        gum confirm && (echo "Creating mamba python environment:" &&\ 
+            mamba create -n m_$NAME -y ipykernel ipython numpy) || \
+            echo "ABORT!";;
     R)
-        echo "Creating mamba R environment:"
-        mamba create --no-default-packages -n r_$NAME -y r-essentials r-base r-irkernel r-tidyverse;;
+        gum confirm && (echo "Creating mamba R environment:" &&\
+            mamba create --no-default-packages -n r_$NAME -y r-essentials r-base r-irkernel r-tidyverse) || \
+            echo "ABORT!";;
 esac
 
 
