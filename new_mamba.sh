@@ -3,8 +3,8 @@
 ##########################################
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
-#Version: 0.1.1                          #
-#Date: 2023-01-24                        #
+#Version: 0.1.2                          #
+#Date: 2023-04-06                        #
 ##########################################
 
 R_COLOUR="#003FC7"
@@ -35,7 +35,7 @@ NAME=$(gum input --placeholder "name")
 case $command in
     Python)
         gum confirm && (echo "Creating mamba python environment:" &&\ 
-            mamba create -n m_$NAME -y ipykernel ipython numpy cookiecutter) || \
+            mamba create -n m_$NAME -y python=3.10 ipykernel ipython numpy kedro) || \
             echo "ABORT!";;
     R)
         gum confirm && (echo "Creating mamba R environment:" &&\
