@@ -4,7 +4,7 @@
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
 #Version: 0.1.3                          #
-#Date: 2023-04-06                        #
+#Date: 2023-04-19                        #
 ##########################################
 
 R_COLOUR="#003FC7"
