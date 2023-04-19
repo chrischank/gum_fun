@@ -3,7 +3,7 @@
 ##########################################
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
-#Version: 0.1.2                          #
+#Version: 0.1.3                          #
 #Date: 2023-04-06                        #
 ##########################################
 
@@ -35,7 +35,7 @@ NAME=$(gum input --placeholder "name")
 case $command in
     Python)
         gum confirm && (echo "Creating mamba python environment:" &&\ 
-            mamba create -n m_$NAME -y python=3.10 ipykernel ipython numpy kedro) || \
+            mamba create -n m_$NAME -y python=3.10 ipykernel ipython numpy kedro pandas pyarrow) || \
             echo "ABORT!";;
     R)
         gum confirm && (echo "Creating mamba R environment:" &&\
