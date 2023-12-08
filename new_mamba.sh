@@ -3,20 +3,13 @@
 ##########################################
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
-#Version: 0.1.3                          #
-#Date: 2023-04-19                        #
+#Version: 0.2.3                          #
+#Date: 2023-12-08                        #
 ##########################################
 
 R_COLOUR="#003FC7"
 MAMBA_COLOUR="#B58B00"
 
-R_colour_text () {
-    gum style --foreground "$R_COLOR" "$1"
-}
-
-Mamba_colour_text () {
-    gum style --foreground "$MAMBA_COLOR" "$2"
-}
 
 gum style \
     --border normal \
@@ -34,14 +27,34 @@ NAME=$(gum input --placeholder "name")
 
 case $command in
     Python)
-        gum confirm && (echo "Creating mamba python environment:" &&\ 
-            mamba create -n m_$NAME -y python=3.10 ipykernel ipython numpy kedro pandas pyarrow) || \
-            echo "ABORT!";;
-    R)
-        gum confirm && (echo "Creating mamba R environment:" &&\
-            mamba create --no-default-packages -n r_$NAME -y r-essentials r-base r-irkernel r-tidyverse) || \
-            echo "ABORT!";;
-esac
+        echo "What kinda project is this?"
+        type=$(gum choose --cursor.foreground="$MAMBA_COLOUR" Data_Science API)
 
+        case $type in
+            Data_Science)
+                if gum confirm; then
+                    echo "Creating mamba DS environment:" &&\ 
+                    mamba create -n ds_$NAME -y python=3.10 ipykernel ipython numpy kedro pandas pyarrow scipy matplotlib seaborn scikit-learn statsmodel
+                else
+                    echo "ABORT!"
+                    fi;;
+
+            API)
+                if gum confirm; then
+                echo "Creating mamba API environment:" &&\ 
+                mamba create -n api_$NAME -y cookiecutter ipykernel ipython numpy pandas pyarrow fastapi uvicorn[standard] gradio
+            else
+                echo "ABORT!"
+                fi;;
+        esac;;
+
+    R)
+        if gum confirm; then
+            echo "Creating mamba R environment:" &&\
+            mamba create --no-default-packages -n r_$NAME -y r-essentials r-base r-irkernel r-tidyverse
+        else
+            echo "ABORT!"
+        fi;;
+esac
 
 
