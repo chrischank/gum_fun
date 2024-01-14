@@ -4,7 +4,7 @@
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
 #Version: 0.2.3                          #
-#Date: 2023-12-08                        #
+#Date: 2024-01-14                        #
 ##########################################
 
 R_COLOUR="#003FC7"
@@ -34,7 +34,7 @@ case $command in
             Data_Science)
                 if gum confirm; then
                     echo "Creating mamba DS environment:" &&\ 
-                    mamba create -n ds_$NAME -y python=3.10 ipykernel ipython numpy kedro pandas pyarrow scipy matplotlib seaborn scikit-learn statsmodel
+                    mamba create -n ds_$NAME -y python=3.10 ipykernel ipython numpy kedro pandas pyarrow scipy matplotlib seaborn scikit-learn statsmodels
                 else
                     echo "ABORT!"
                     fi;;
