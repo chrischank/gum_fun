@@ -42,7 +42,7 @@ case $command in
             API)
                 if gum confirm; then
                 echo "Creating mamba API environment:" &&\ 
-                mamba create -n api_$NAME -y cookiecutter ipykernel ipython numpy pandas pyarrow fastapi uvicorn[standard] gradio
+                mamba create -n api_$NAME -y cookiecutter ipykernel ipython numpy pandas pyarrow fastapi uvicorn[standard] gradio pathlib
             else
                 echo "ABORT!"
                 fi;;
