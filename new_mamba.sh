@@ -3,8 +3,8 @@
 ##########################################
 #Gum Launch new mamba project environment#
 #Maintainer: Christopher Chan            #
-#Version: 0.2.5                          #
-#Date: 2024-02-26                        #
+#Version: 0.2.6                          #
+#Date: 2025-02-08                        #
 ##########################################
 
 R_COLOUR="#003FC7"
@@ -34,7 +34,7 @@ case $command in
             Data_Science)
                 if gum confirm; then
                     echo "Creating mamba DS environment:" &&\ 
-                    mamba create -n ds_$NAME -y python=3.10 ipykernel ipython numpy kedro kedro-viz pandas pyarrow scipy matplotlib seaborn scikit-learn statsmodels pathlib
+                    mamba create -n ds_$NAME -y python=3.10 ipykernel ipython numpy kedro kedro-viz pandas pyarrow scipy matplotlib seaborn scikit-learn statsmodels pathlib pyarrow polars
                 else
                     echo "ABORT!"
                     fi;;
@@ -42,7 +42,7 @@ case $command in
             API)
                 if gum confirm; then
                 echo "Creating mamba API environment:" &&\ 
-                mamba create -n api_$NAME -y cookiecutter ipykernel ipython numpy pandas pyarrow fastapi uvicorn[standard] gradio pathlib
+                mamba create -n api_$NAME -y cookiecutter ipykernel ipython numpy pandas pyarrow fastapi uvicorn[standard] gradio pathlib pyarrow polars
             else
                 echo "ABORT!"
                 fi;;
